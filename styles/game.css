@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "IsaacFont";
+  src: url("../assets/fonts/upheavtt.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+#game-container {
+  position: relative;
+  width: 1150px;
+  height: 880px;
+  margin: auto;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  border-radius: 23px 23px;
+  background-image: url("../assets/image/background.png");
+  background-position: center;
+  background-size: 1150px 880px;
+  font-family: "IsaacFont", sans-serif;
+  font-size: 30px;
+}
+#hud {
+  display: flex;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#hud-items {
+  display: flex;
+  list-style: none;
+  gap: 100px;
+}
+
+.item {
+  background-color: black;
+  padding: 5px;
+  border-radius: 10px;
+}
