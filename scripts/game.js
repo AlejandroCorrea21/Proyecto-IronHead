@@ -23,8 +23,26 @@ function startGame() {
     }
   });
 
-  canonObject = new Canon((x = 40), (y = 40));
+  canonObject = new Canon("../assets/images/canonlup.png", 10, 10); //Esquina arriba izquierda
   canonObject.shoot();
+  canonObject = new Canon(
+    "../assets/images/canonldown.png",
+    0,
+    gameContainer.offsetHeight - 140
+  ); // esquina abajo izquierda
+  canonObject.shoot();
+  (canonObject = new Canon(
+    "../assets/images/canonrup.png",
+    gameContainer.offsetWidth - 100,
+    0
+  )), // esquina arriba derecha
+    canonObject.shoot();
+  (canonObject = new Canon(
+    "../assets/images/canonrdown.png",
+    gameContainer.offsetWidth - 100,
+    gameContainer.offsetHeight - 140
+  )),
+    canonObject.shoot();
 }
 
 function startMusic() {

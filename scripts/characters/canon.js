@@ -1,7 +1,5 @@
 class Canon {
   constructor(image, x, y) {
-    // Pongo todas las propiedades del PJ principal
-
     // Creamos el nodo y añadimos la caja del juego.
     this.node = document.createElement("img"); // creamos el nodo de el personaje <img />
     this.node.src = image; // añadimos el src de la imagen
