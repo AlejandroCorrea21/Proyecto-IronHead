@@ -5,6 +5,10 @@
   font-style: normal;
 }
 
+body {
+  font-family: "IsaacFont", sans-serif;
+}
+
 #game-container {
   position: relative;
   width: 1150px;
@@ -17,14 +21,14 @@
   flex-direction: column;
   color: white;
   border-radius: 23px 23px;
-  background-image: url("../assets/image/background.png");
+  background-image: url("../assets/images/background.png");
   background-position: center;
   background-size: 1150px 880px;
-  font-family: "IsaacFont", sans-serif;
+
   font-size: 30px;
 }
 #hud {
-  display: flex;
+  display: none;
   position: absolute;
   top: 0;
   width: 100%;
