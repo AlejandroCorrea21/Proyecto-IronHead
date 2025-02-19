@@ -1,9 +1,9 @@
 class Shoot {
-  constructor(x, y, xplayer, yplayer) {
+  constructor(x, y) {
     // Creamos el nodo y añadimos la caja del juego.
     this.node = document.createElement("img"); // creamos el nodo de el personaje <img />
     this.node.src = "./assets/images/hacienda.png"; // añadimos el src de la imagen
-
+    gameContainer.append(this.node);
     // 2. configurar posicion y dimensiones iniciales
     this.x = x; // posición en el eje horizontal
     this.y = y; // posición en el eje vertical
@@ -14,12 +14,13 @@ class Shoot {
     this.node.style.height = `60px`;
   }
 
-  generate() {
-    gameContainer.append(this.node);
-  }
-
   targetPlayer() {
     this.node.style.left = `${xplayer}px`;
     this.node.style.top = `${yplayer}px`;
+  }
+
+  automaticMovement() {
+    this.x -= this.movementSpeed;
+    this.node.style.left = `${this.x}px`;
   }
 }
