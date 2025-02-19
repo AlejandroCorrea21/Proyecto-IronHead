@@ -25,24 +25,41 @@ function startGame() {
 
   canonObject = new Canon("./assets/canonlup.png", 10, 10); //Esquina arriba izquierda
   canonObject.shoot();
+
   canonObject = new Canon(
     "./assets/canonldown.png",
     0,
     gameContainer.offsetHeight - 140
   ); // esquina abajo izquierda
   canonObject.shoot();
+
   (canonObject = new Canon(
     "./assets/canonrup.png",
     gameContainer.offsetWidth - 100,
     0
   )), // esquina arriba derecha
     canonObject.shoot();
+
   (canonObject = new Canon(
     "./assets/canonrdown.png",
     gameContainer.offsetWidth - 100,
     gameContainer.offsetHeight - 140
-  )),
+  )), // esquina abajo derecha
     canonObject.shoot();
+
+  (canonObject = new Canon(
+    "./assets/canonderecha.png",
+    gameContainer.offsetWidth - 100,
+    gameContainer.offsetHeight - 500
+  )), // lado derecho
+    canonObject.shoot();
+
+  canonObject = new Canon(
+    "./assets/canonizquierda.png",
+    0,
+    gameContainer.offsetHeight - 500
+  ); // lado izquierdo
+  canonObject.shoot();
 }
 
 function startMusic() {
