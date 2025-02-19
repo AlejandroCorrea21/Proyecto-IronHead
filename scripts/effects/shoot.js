@@ -1,5 +1,5 @@
 class Shoot {
-  constructor(x, y) {
+  constructor(x, y, type) {
     // Creamos el nodo y añadimos la caja del juego.
     this.node = document.createElement("img"); // creamos el nodo de el personaje <img />
     this.node.src = "./assets/images/hacienda.png"; // añadimos el src de la imagen
@@ -12,15 +12,29 @@ class Shoot {
     this.node.style.top = `${this.y}px`;
     this.node.style.width = `60px`;
     this.node.style.height = `60px`;
+    this.movementSpeed = 2;
+    this.type = type; // 
   }
 
-  targetPlayer() {
+  /* targetPlayer() {
     this.node.style.left = `${xplayer}px`;
-    this.node.style.top = `${yplayer}px`;
-  }
+    this.node.style.top = `${yplayer}px`; 
+  } */
 
-  automaticMovement() {
-    this.x -= this.movementSpeed;
-    this.node.style.left = `${this.x}px`;
+  automaticMovement() {  // Derecha a izquierda
+  
+    if(this.type === ("canon4") || this.type === ("canon5") || this.type === ("canon6")) {
+      this.x -= this.movementSpeed;
+      this.node.style.left = `${this.x}px`;
+
+      console.log("Estoy dentro de movement");
+    }
+
+    if(this.type === ("canon1") || this.type === ("canon2") || this.type === ("canon3")) {
+      this.x += this.movementSpeed;
+      this.node.style.left = `${this.x}px`;
+
+      console.log("Estoy dentro de movement");
+    }
   }
 }

@@ -22,14 +22,20 @@ class Canon {
     // cuando el cañon aparece empieza a disparar.
 
     this.type = type;
-    this.shoot();
+    // this.shoot();
   }
 
-  shoot() {
+  /*shoot() {
+    let balaID = setInterval( () => {
+      let bala = new Shoot(this.bulletx, this.bullety);
+      bala.automaticMovement();
+      }, 2000)
+      console.log("Estamos dentro de shoot")
     const shootBullet = () => {
       let shoot = new Shoot(this.bulletx, this.bullety);
     };
 
     setInterval(shootBullet, 1000);
-  }
+  } */
+
 }
