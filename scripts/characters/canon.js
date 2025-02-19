@@ -1,5 +1,5 @@
 class Canon {
-  constructor(image, x, y) {
+  constructor(image, x, y, bulletx, bullety) {
     // Creamos el nodo y añadimos la caja del juego.
     this.node = document.createElement("img"); // creamos el nodo de el personaje <img />
     this.node.src = image; // añadimos el src de la imagen
@@ -10,6 +10,8 @@ class Canon {
     this.y = y; // posición en el eje vertical
     this.w = 100;
     this.h = 140;
+    this.bulletx = bulletx;
+    this.bullety = bullety;
 
     this.node.style.position = "absolute"; // para poder ubicarlo dentro de la caja de juego
     this.node.style.left = `${this.x}px`;
@@ -19,9 +21,12 @@ class Canon {
   }
 
   shoot() {
-    function sayhello() {
-      console.log("Disparando");
-    }
-    setInterval(sayhello, 1000);
+    const shootBullet = () => {
+      let shoot = new Shoot(this.bulletx, this.bullety);
+      shoot.generate();
+      shoot.targetPlayer()
+    };
+
+    setInterval(shootBullet, 1000);
   }
 }

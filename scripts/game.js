@@ -11,6 +11,11 @@ function startGame() {
   gameScreenNode.style.display = "flex";
 
   personajeObj = new Player();
+  function posicionactual() {
+    console.log(personajeObj.x, personajeObj.y);
+  }
+
+  setInterval(posicionactual, 1000);
   document.addEventListener("keydown", (event) => {
     if (event.isComposing || event.key === "w") {
       personajeObj.moveUp();
@@ -23,48 +28,60 @@ function startGame() {
     }
   });
 
-  canonObject = new Canon("./assets/canonlup.png", 10, 10); //Esquina arriba izquierda
+  canonObject = new Canon("./assets/images/canonlup.png", 10, 10, 78, 90); //Esquina arriba izquierda
   canonObject.shoot();
 
   canonObject = new Canon(
-    "./assets/canonldown.png",
+    "./assets/images/canonldown.png",
     0,
-    gameContainer.offsetHeight - 140
+    gameContainer.offsetHeight - 140,
+    52,
+    gameContainer.offsetHeight - 160
   ); // esquina abajo izquierda
   canonObject.shoot();
 
   (canonObject = new Canon(
-    "./assets/canonrup.png",
+    "./assets/images/canonrup.png",
     gameContainer.offsetWidth - 100,
-    0
+    0,
+    gameContainer.offsetWidth - 130,
+    80
   )), // esquina arriba derecha
     canonObject.shoot();
 
   (canonObject = new Canon(
-    "./assets/canonrdown.png",
+    "./assets/images/canonrdown.png",
     gameContainer.offsetWidth - 100,
-    gameContainer.offsetHeight - 140
+    gameContainer.offsetHeight - 140,
+    gameContainer.offsetWidth - 110,
+    gameContainer.offsetHeight - 150
   )), // esquina abajo derecha
     canonObject.shoot();
 
   (canonObject = new Canon(
-    "./assets/canonderecha.png",
+    "./assets/images/canonright.png",
     gameContainer.offsetWidth - 100,
-    gameContainer.offsetHeight - 500
+    gameContainer.offsetHeight - 500,
+    gameContainer.offsetWidth - 140,
+    gameContainer.offsetHeight - 490
   )), // lado derecho
     canonObject.shoot();
 
   canonObject = new Canon(
-    "./assets/canonizquierda.png",
+    "./assets/images/canonleft.png",
     0,
-    gameContainer.offsetHeight - 500
+    gameContainer.offsetHeight - 500,
+    78,
+    gameContainer.offsetHeight - 490
   ); // lado izquierdo
   canonObject.shoot();
 }
 
 function startMusic() {
-  const music = new Audio("./assets/music.mp3"); // música undertale ost
+  const music = new Audio("./assets/audio/music.mp3"); // música undertale ost
   music.volume = 0.05;
   music.loop = true;
   music.play();
 }
+
+startGame();
