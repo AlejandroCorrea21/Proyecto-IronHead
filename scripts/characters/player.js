@@ -4,7 +4,7 @@ class Player {
 
     // Creamos el nodo y añadimos la caja del juego.
     this.node = document.createElement("img"); // creamos el nodo de el personaje <img />
-    this.node.src = "../assets/images/ironhead.png"; // añadimos el src de la imagen
+    this.node.src = "./assets/ironhead.png"; // añadimos el src de la imagen
     gameContainer.append(this.node); // añadimos el nodo a la caja de juego
 
     // 2. configurar posicion y dimensiones iniciales

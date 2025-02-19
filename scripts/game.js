@@ -23,22 +23,22 @@ function startGame() {
     }
   });
 
-  canonObject = new Canon("../assets/images/canonlup.png", 10, 10); //Esquina arriba izquierda
+  canonObject = new Canon("./assets/canonlup.png", 10, 10); //Esquina arriba izquierda
   canonObject.shoot();
   canonObject = new Canon(
-    "../assets/images/canonldown.png",
+    "./assets/canonldown.png",
     0,
     gameContainer.offsetHeight - 140
   ); // esquina abajo izquierda
   canonObject.shoot();
   (canonObject = new Canon(
-    "../assets/images/canonrup.png",
+    "./assets/canonrup.png",
     gameContainer.offsetWidth - 100,
     0
   )), // esquina arriba derecha
     canonObject.shoot();
   (canonObject = new Canon(
-    "../assets/images/canonrdown.png",
+    "./assets/canonrdown.png",
     gameContainer.offsetWidth - 100,
     gameContainer.offsetHeight - 140
   )),
@@ -46,7 +46,7 @@ function startGame() {
 }
 
 function startMusic() {
-  const music = new Audio("../assets/audio/music.mp3"); // música undertale ost
+  const music = new Audio("./assets/music.mp3"); // música undertale ost
   music.volume = 0.05;
   music.loop = true;
   music.play();
