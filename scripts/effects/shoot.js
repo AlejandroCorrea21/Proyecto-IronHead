@@ -38,16 +38,7 @@ class Shoot {
         // (posicion en Y) (va en diagonal)
 
 
-        //movimiento automático de la bala
-        /* if (this.type === "canon4" || this.type === "canon5" || this.type === "canon6") {
-            this.x -= this.movementSpeed; // movimiento de derecha a izquierda
-            this.node.style.left = `${this.x}px`;
-        }
 
-        if (this.type === "canon1" || this.type === "canon2" || this.type === "canon3") {
-            this.x += this.movementSpeed; // movimiento de izquierda a derecha
-            this.node.style.left = `${this.x}px`;
-        } */
     }
     colisionBalaPared() {
         if (this.x + this.w >= 1050) { // colisión pared derecha
