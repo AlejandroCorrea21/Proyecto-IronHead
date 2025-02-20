@@ -53,7 +53,7 @@ class Shoot {
         if (this.x + this.w >= 1050) { // colision pared derecha
             this.seEstaMoviendoHaciaLaDerecha = false;
         }
-        if (this.y + this.h >= gameContainer.offsetHeight) { // colisión bottom
+        if (this.y + this.h >= gameContainer.offsetHeight -118) { // colisión bottom
             this.seEstaMoviendoHaciaAbajo = false;
         }
         if (this.x <= 105) { // colision pared izquierda
