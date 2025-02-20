@@ -15,16 +15,27 @@ class Shoot {
         this.node.style.top = `${this.y}px`;
         this.node.style.width = "60px";
         this.node.style.height = "60px";
-        this.movementSpeed = 10; // velocidad de la bala
+        this.movementSpeed = 7; // velocidad de la bala
         this.type = type; // type define la bala, esto ayuda a que el enterno de juego sepa que tipo de objetos estoy creando.
         this.seEstaMoviendoHaciaLaDerecha = true;
         this.seEstaMoviendoHaciaAbajo = true;
     }
 
     automaticMovement() {
+        if (this.seEstaMoviendoHaciaLaDerecha === true) {
+            this.x += this.movementSpeed; // bala a la derecha si es true
+        } else {
+            this.x -= this.movementSpeed; // si es false a la izquierda
+        }
 
-
-
+        this.node.style.left = `${this.x}px`; // linea que actualiza el DOM // (posición en X)
+        if (this.seEstaMoviendoHaciaAbajo === true) {
+            this.y += this.movementSpeed; // si es true, la bala va abajo
+        } else {
+            this.y -= this.movementSpeed; //si es false, la bala va arriba
+        }
+        this.node.style.top = `${this.y}px`; // linea que actualiza el DOM
+        // (posicion en Y) (va en diagonal)
 
 
         //movimiento automático de la bala
@@ -39,17 +50,16 @@ class Shoot {
         } */
     }
     colisionBalaPared() {
-        if (this.x + this.w >= 1150) { // colision pared derecha
+        if (this.x + this.w >= 1050) { // colision pared derecha
             this.seEstaMoviendoHaciaLaDerecha = false;
-
         }
         if (this.y + this.h >= gameContainer.offsetHeight) { // colisión bottom
             this.seEstaMoviendoHaciaAbajo = false;
         }
-        if (this.x <= 0) { // colision pared izquierda
+        if (this.x <= 105) { // colision pared izquierda
             this.seEstaMoviendoHaciaLaDerecha = true;
         }
-        if (this.y <= 0) { // colision top
+        if (this.y <= 130) { // colision top
             this.seEstaMoviendoHaciaAbajo = true;
         }
     }

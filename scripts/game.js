@@ -53,7 +53,7 @@ function gameLoop() { // loop de las balas
   balasArray.forEach((eachShootObj) => { //metemos la array en el bucle forEach
     eachShootObj.automaticMovement() // inicializa el metodo automaticMovement de cada bala.
 
-    eachShootObj.colisionBalaPared()
+    eachShootObj.colisionBalaPared() // método para la colision de las paredes
 
   })
 
