@@ -10,8 +10,8 @@ class Player {
     // 2. configurar posicion y dimensiones iniciales
     this.x = 440; // posición en el eje horizontal
     this.y = 370; // posición en el eje vertical
-    this.w = 80;
-    this.h = 120;
+    this.w = 80; // ancho del jugador
+    this.h = 120; // alto del jugador
 
     this.node.style.position = "absolute"; // para poder ubicarlo dentro de la caja de juego
     this.node.style.left = `${this.x}px`;
