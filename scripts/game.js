@@ -39,7 +39,7 @@ function startGame() {
     }
   });
 
-  // cañones -(Primer número es posicion lateral, segundo número es altura.)
+  // cañones -(Imagen es parámetro, Primer número es posicion lateral, segundo número es altura.)
 
   canonObject1 = new Canon(`canon1`,"./assets/images/canonlup.png", 10, 10); //Esquina arriba izquierda (canon1)
 
@@ -87,9 +87,11 @@ function startMusic() {
   music.play();
 }
 
-function gameLoop() {
+function gameLoop() { // loop de las balas
 
-  balasArray.forEach((eachShootObj) => {
-    eachShootObj.automaticMovement()
+  balasArray.forEach((eachShootObj) => { //metemos la array en el bucle forEach
+    eachShootObj.automaticMovement() // inicializa el metodo automaticMovement de cada bala  y detecta colisiones.
   })
+
 }
+
