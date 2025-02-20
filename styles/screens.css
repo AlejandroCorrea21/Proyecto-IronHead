@@ -8,6 +8,8 @@
   height: 600px;
   text-align: center;
   position: relative;
+  z-index: 10;
+  /*pantalla gameover x encima del resto de elementos*/
 }
 
 #game-over-title {

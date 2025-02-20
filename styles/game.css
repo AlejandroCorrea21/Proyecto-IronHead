@@ -27,6 +27,7 @@ body {
 
   font-size: 30px;
 }
+
 #hud {
   display: none;
   position: absolute;
@@ -39,8 +40,9 @@ body {
 
 #hud-items {
   display: flex;
-  list-style: none;
+  list-style-type: none;
   gap: 100px;
+  text-decoration: none;
 }
 
 .item {
