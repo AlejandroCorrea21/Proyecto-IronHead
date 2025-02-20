@@ -56,24 +56,8 @@ function gameLoop() { // loop de las balas
     eachShootObj.colisionBalaPared() // método para la colision de las paredes
 
   })
-
+  checkColisionPlayerBalas()
 }
-
-function balasDespawn() {
-  if (balasArray.length > 0 && balasArray[0].x < (0 - balasArray[0].w)) {
-    // 1. si el array tiene tuberias
-    // 2. si la x de la primera tuberia ha salido de la caja de juego
-
-    // Para remover objetos del juego SIEMPRE tenemos que considerar dos cosas:
-    // 1. remover el Nodo
-    balasArray[0].node.remove()
-
-    // 2. removerlo de JS (del array)
-    balasArray.shift()
-
-  }
-}
-
 
 
 function checkColisionPlayerBalas() {

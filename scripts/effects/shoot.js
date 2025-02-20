@@ -15,7 +15,7 @@ class Shoot {
         this.node.style.top = `${this.y}px`;
         this.node.style.width = "60px";
         this.node.style.height = "60px";
-        this.movementSpeed = 7; // velocidad de la bala
+        this.movementSpeed = 2.5; // velocidad de la bala
         this.type = type; // type define la bala, esto ayuda a que el enterno de juego sepa que tipo de objetos estoy creando.
         this.seEstaMoviendoHaciaLaDerecha = true;
         this.seEstaMoviendoHaciaAbajo = true;
@@ -50,18 +50,17 @@ class Shoot {
         } */
     }
     colisionBalaPared() {
-        if (this.x + this.w >= 1050) { // colision pared derecha
+        if (this.x + this.w >= 1050) { // colisión pared derecha
             this.seEstaMoviendoHaciaLaDerecha = false;
         }
-        if (this.y + this.h >= gameContainer.offsetHeight -118) { // colisión bottom
+        if (this.y + this.h >= gameContainer.offsetHeight - 125) { // colisión bottom
             this.seEstaMoviendoHaciaAbajo = false;
         }
-        if (this.x <= 105) { // colision pared izquierda
+        if (this.x <= 105) { // colisión pared izquierda
             this.seEstaMoviendoHaciaLaDerecha = true;
         }
-        if (this.y <= 130) { // colision top
+        if (this.y <= 130) { // colisión top
             this.seEstaMoviendoHaciaAbajo = true;
         }
     }
-
-}
+}    

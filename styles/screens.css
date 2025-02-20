@@ -1,6 +1,21 @@
 #game-screen,
 #game-over-screen {
   display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 600px;
+  text-align: center;
+  position: relative;
+}
+
+#game-over-title {
+  font-size: 3em;
+  text-shadow: 3px 3px 5px rgba(0, 10, 0, 1);
+  margin-top: 0;
+  position: absolute;
+  top: 0px;
 }
 
 #start-screen {
@@ -35,5 +50,21 @@
 }
 
 #start-btn:hover {
+  cursor: pointer;
+}
+
+#restart-btn {
+  position: absolute;
+  border-radius: 10px;
+  width: 200px;
+  height: 60px;
+  bottom: 50px;
+  font-family: "IsaacFont", sans-serif;
+  font-size: 30px;
+  background-image: url("../assets/images/button.png");
+  background-position: center;
+}
+
+#restart-btn:hover {
   cursor: pointer;
 }
