@@ -16,7 +16,7 @@ let time = 0;
 let personajeObj = null;
 let gameIntervalId = null;
 let shootIntervalId = null;
-let balasArray = []; // Las balas empiezan a aparecer.
+let balasArray = []; // Las balas empiezan a aparecer. (array)
 
 timeCounter.innerText = "Tiempo"; // Inicializa el contenido del timeCounter en el HTML
 
@@ -33,21 +33,31 @@ function moveCharacter(event) {
   }
 }
 
-// Iniciar el juego
+let timeIntervalId = null;  // Intervalo contador tiempo
+let gameLoopIntervalId = null; // Intervalo loop juego
+
 function startGame() {
+  if (timeIntervalId) {
+    clearInterval(timeIntervalId); // Limpiar intervalo de tiempo
+  }
+
+  if (gameLoopIntervalId) {
+    clearInterval(gameLoopIntervalId); // Limpiar intervalo del loop
+  }
+
   startMusic();
 
-  gameIntervalId = setInterval(() => {
+  timeIntervalId = setInterval(() => {
     time++;
     timeCounter.innerText = `Tiempo ${time}`;
   }, 1000);
 
-  // Muestra y oculta las pantallas
+  // pantallas - mostrar - ocultar
   document.querySelector("#hud").style.display = "flex";
   document.querySelector("#start-screen").style.display = "none";
   gameScreenNode.style.display = "flex";
 
-  // Crear personaje
+  // Crear PJ
   personajeObj = new Player();
 
   // Invocar cañones
@@ -57,16 +67,16 @@ function startGame() {
   document.addEventListener("keydown", moveCharacter);
 
   // Iniciar el loop del juego
-  gameIntervalId = setInterval(gameLoop, 1000 / 60);
+  gameLoopIntervalId = setInterval(gameLoop, 1000 / 60);
 }
-
 // Iniciar música
 function startMusic() {
-  const music = new Audio("./assets/audio/music.mp3"); // Música undertale ost
-  music.volume = 0.1; // volúmen música
-  music.loop = true; // una vez acaba la canción se vuelve a ejecutar.
-  music.play(); //invocamos
+  music = new Audio("./assets/audio/music.mp3");
+  music.volume = 0.1;
+  music.loop = true;
+  music.play();
 }
+
 
 // Loop del juego
 function gameLoop() {
@@ -102,7 +112,8 @@ function iniciarCañones() {
     new Canon("canon2", "/assets/images/canonleft.png", 0, gameContainer.offsetHeight - 500)
   ];
 
-  let posicionesBalas = [
+  let posicionesBalas = [ //creo balas a partir de la posición de los cañones e inicio disparos.
+
     [cañones[2].x, cañones[2].y + 120, "canon4"],
     [cañones[4].x, cañones[4].y, "canon5"],
     [cañones[3].x, cañones[3].y - 30, "canon6"],
@@ -110,7 +121,7 @@ function iniciarCañones() {
     [cañones[5].x, cañones[5].y, "canon2"],
     [cañones[1].x, cañones[1].y - 30, "canon3"]
   ];
-
+  // bucle forEach
   posicionesBalas.forEach(([x, y, tipo]) => {
     balasArray.push(new Shoot(x, y, tipo));
   });
@@ -129,15 +140,23 @@ function gameOver() {
 // Reiniciar el juego
 function restartGame() {
   time = 0;
+  if (music) {
+    music.pause();
+    music.currentTime = 0; // Reinicio música
+  }
+  if (gameIntervalId) {
+    clearInterval(gameIntervalId);
+  }
+
   gameOverScreenNode.style.display = "none";
 
   if (personajeObj && personajeObj.node) {
-    personajeObj.node.remove();
+    personajeObj.node.remove(); //elimina el PJ del juego
   }
 
-  personajeObj = null;
+  personajeObj = null; //indicamos que ya no hay PJ.
 
-  balasArray.forEach((bala) => {
+  balasArray.forEach((bala) => { //eliminamos todas las balas
     if (bala.node) {
       bala.node.remove();
     }
@@ -146,7 +165,6 @@ function restartGame() {
   balasArray = [];
 
   document.removeEventListener("keydown", moveCharacter); // El EventListener (keydown) lo ponemos para que no vaya acumulando la velocidad cada vez que le damos restart.
-
 
   startGame();
 }
