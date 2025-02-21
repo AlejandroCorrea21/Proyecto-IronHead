@@ -66,6 +66,7 @@ function startGame() {
   // EventListener para el movimiento del personaje
   document.addEventListener("keydown", moveCharacter);
 
+  shootIntervalId
   // Iniciar el loop del juego
   gameLoopIntervalId = setInterval(gameLoop, 1000 / 60);
 }
@@ -133,6 +134,7 @@ function gameOver() {
 
   gameScreenNode.style.display = "none";
   gameOverScreenNode.style.display = "flex";
+
 }
 
 function restartGame() {
@@ -143,6 +145,9 @@ function restartGame() {
   }
   if (gameIntervalId) {
     clearInterval(gameIntervalId);
+  }
+  if (shootIntervalId) {
+    clearInterval(shootIntervalId);
   }
 
   gameOverScreenNode.style.display = "none";
