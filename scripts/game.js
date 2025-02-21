@@ -9,14 +9,14 @@ const gameScreenNode = document.querySelector("#game-screen");
 const gameOverScreenNode = document.querySelector("#game-over-screen");
 
 // Tiempo
-const timeCounter = document.getElementById("time"); // HTML -> LI
+const timeCounter = document.getElementById("time");
 
 // Variables
 let time = 0;
 let personajeObj = null;
 let gameIntervalId = null;
 let shootIntervalId = null;
-let balasArray = []; // Las balas empiezan a aparecer. (array)
+let balasArray = [];
 
 timeCounter.innerText = "Tiempo"; // Inicializa el contenido del timeCounter en el HTML
 
@@ -33,8 +33,8 @@ function moveCharacter(event) {
   }
 }
 
-let timeIntervalId = null;  // Intervalo contador tiempo
-let gameLoopIntervalId = null; // Intervalo loop juego
+let timeIntervalId = null;
+let gameLoopIntervalId = null;
 
 function startGame() {
   if (timeIntervalId) {
@@ -107,9 +107,9 @@ function iniciarCañones() {
     new Canon("canon1", "./assets/images/canonlup.png", 10, 10),
     new Canon("canon3", "./assets/images/canonldown.png", 0, gameContainer.offsetHeight - 140),
     new Canon("canon4", "./assets/images/canonrup.png", gameContainer.offsetWidth - 100, 0),
-    new Canon("canon6", "/assets/images/canonrdown.png", gameContainer.offsetWidth - 90, 730),
-    new Canon("canon5", "/assets/images/canonright.png", gameContainer.offsetWidth - 100, gameContainer.offsetHeight - 500),
-    new Canon("canon2", "/assets/images/canonleft.png", 0, gameContainer.offsetHeight - 500)
+    new Canon("canon6", "./assets/images/canonrdown.png", gameContainer.offsetWidth - 90, 730),
+    new Canon("canon5", "./assets/images/canonright.png", gameContainer.offsetWidth - 100, gameContainer.offsetHeight - 500),
+    new Canon("canon2", "./assets/images/canonleft.png", 0, gameContainer.offsetHeight - 500)
   ];
 
   let posicionesBalas = [ //creo balas a partir de la posición de los cañones e inicio disparos.
@@ -121,14 +121,12 @@ function iniciarCañones() {
     [cañones[5].x, cañones[5].y, "canon2"],
     [cañones[1].x, cañones[1].y - 30, "canon3"]
   ];
-  // bucle forEach
+
   posicionesBalas.forEach(([x, y, tipo]) => {
     balasArray.push(new Shoot(x, y, tipo));
   });
 }
 
-
-// Terminar el juego
 function gameOver() {
   clearInterval(gameIntervalId);
   clearInterval(shootIntervalId);
@@ -137,7 +135,6 @@ function gameOver() {
   gameOverScreenNode.style.display = "flex";
 }
 
-// Reiniciar el juego
 function restartGame() {
   time = 0;
   if (music) {

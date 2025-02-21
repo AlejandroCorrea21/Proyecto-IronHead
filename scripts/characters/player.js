@@ -1,7 +1,5 @@
 class Player {
   constructor() {
-    // Pongo todas las propiedades del PJ principal
-
     // Creamos el nodo y añadimos la caja del juego.
     this.node = document.createElement("img"); // creamos el nodo de el personaje <img />
     this.node.src = "./assets/images/ironhead.png"; // añadimos el src de la imagen
@@ -19,7 +17,7 @@ class Player {
     this.node.style.width = `${this.w}px`;
     this.node.style.height = `${this.h}px`;
   }
-
+  // movimiento jugador
   moveUp() {
     if (this.y + this.h > 262) {
       this.y -= 15;
