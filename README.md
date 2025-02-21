@@ -40,21 +40,21 @@ Imagenes JS y Audios JS
 
 ## Game.js
 
-- `startGame()
-- `gameLoop()
-- `restartGame()
-- `moveCharacter(event)
-- `startMusic()
-- `checkColisionPlayerBalas()
-- `iniciarCañones()
+- startGame()
+- gameLoop()
+- restartGame()
+- moveCharacter(event)
+- startMusic()
+- checkColisionPlayerBalas()
+- iniciarCañones()
 
 ## Player.js
 
-- `Player()
-- `moveUp()
-- `moveDown()
-- `moveLeft()
-- `moveRight()
+- Player()
+- moveUp()
+- moveDown()
+- moveLeft()
+- moveRight()
 
 ## canon.js
 - Canon(type, image, x, y)
